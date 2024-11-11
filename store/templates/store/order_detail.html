@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Детали заказа</title>
+</head>
+<body>
+    <h1>Детали заказа #{{ order.id }}</h1>
+
+    <p><strong>Дата заказа:</strong> {{ order.ordered_at }}</p>
+    <p><strong>Клиент:</strong> {{ order.client.name }}</p>
+    <h2>Товары в заказе</h2>
+    <ul>
+        {% for product in order.products.all %}
+        <li>{{ product.name }} — {{ product.price }} руб.</li>
+        {% endfor %}
+    </ul>
+
+    <p><strong>Общая стоимость:</strong> {{ order.total_price }} руб.</p>
+    </ul>
+    <a href="{% url 'home' %}">На главную</a>
+</body>
+</html>
+

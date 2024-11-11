@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заказы продукта</title>
+</head>
+<body>
+    <h1>Заказы для продукта: {{ product.name }}</h1>
+
+    <h2>За последние 7 дней</h2>
+    <ul>
+        {% for order in last_7_days_orders %}
+        <li>
+            <a href="{% url 'order_detail' order.id %}">{{ order.ordered_at }} — Заказ от {{ order.client.name }}</a>
+        </li>
+        {% empty %}
+        <li>Нет заказов за последние 7 дней</li>
+        {% endfor %}
+    </ul>
+
+    <h2>За последние 30 дней</h2>
+    <ul>
+        {% for order in last_30_days_orders %}
+        <li>
+            <a href="{% url 'order_detail' order.id %}">{{ order.ordered_at }} — Заказ от {{ order.client.name }}</a>
+        </li>
+        {% empty %}
+        <li>Нет заказов за последние 30 дней</li>
+        {% endfor %}
+    </ul>
+
+    <h2>За последние 365 дней</h2>
+    <ul>
+        {% for order in last_365_days_orders %}
+        <li>
+            <a href="{% url 'order_detail' order.id %}">{{ order.ordered_at }} — Заказ от {{ order.client.name }}</a>
+        </li>
+        {% empty %}
+        <li>Нет заказов за последние 365 дней</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'home' %}">На главную</a>
+</body>
+</html>
+

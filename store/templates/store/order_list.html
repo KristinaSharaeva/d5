@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список заказов</title>
+</head>
+<body>
+    <h1>Список заказов</h1>
+    <ul>
+        {% for order in orders %}
+        <li><a href="{% url 'order_detail' order.id %}">Заказ #{{ order.id }} — {{ order.ordered_at }}</a></li>
+        {% endfor %}
+    </ul>
+    </ul>
+    <a href="{% url 'home' %}">На главную</a>
+</body>
+</html>

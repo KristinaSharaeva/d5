@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список продуктов</title>
+</head>
+<body>
+    <h1>Список продуктов</h1>
+    <ul>
+        {% for product in products %}
+        <li><a href="{% url 'product_orders' product.id %}">{{ product.name }}</a></li>
+        {% endfor %}
+    </ul>
+    </ul>
+    <a href="{% url 'home' %}">На главную</a>
+</body>
+</html>
